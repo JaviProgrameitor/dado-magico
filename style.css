@@ -1,0 +1,419 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --dado-tamaño-normal: 250px;
+  --bolitas-tamaño-normal: 60px;
+  --dado-cartas-tamaño-normal: 100px;
+  --bolitas-cartas-tamaño-normal: 10px;
+}
+
+body {
+  height: 100vh;
+  background-color: black;
+}
+
+.cabecera {
+  box-sizing: border-box;
+  height: 100px;
+  background-color: black;
+  border-bottom: 2px solid white;
+  display: flex;
+}
+
+.cabecera h1 {
+  color: white;
+  margin: auto;
+  font-family: 'Rubik Bubbles', cursive;
+
+}
+
+.contenido {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 100px);
+}
+
+.contenedor-1 {
+  width: 40%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contenedor-1 .caras-dado {
+  width: var(--dado-cartas-tamaño-normal);
+  height: var(--dado-cartas-tamaño-normal);
+  background-color: purple;
+  border: 1px solid white;
+
+  display: flex;
+  cursor: pointer;
+}
+
+.contenedor-1 .uno {
+  display: grid;
+  place-items: center;
+
+}
+
+.contenedor-1 .dos {
+  justify-content: space-between;
+}
+
+.contenedor-1 .dos div:nth-child(2) {
+  align-self: flex-end;
+}
+
+.contenedor-1 .tres {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contenedor-1 .tres div:nth-child(1) {
+  align-self: flex-end;
+}
+
+.contenedor-1 .tres div:nth-child(3) {
+  align-self: flex-start;
+}
+
+.contenedor-1 .cuatro {
+  display: grid;
+  grid-template-columns: 3fr;
+  grid-template-rows: 3fr;
+}
+
+.contenedor-1 .cuatro div:nth-child(2) {
+  grid-column: 3 / 3;
+  grid-row: 1 / 3;
+}
+
+.contenedor-1 .cuatro div:nth-child(3) {
+  grid-column: 1 / 3;
+  grid-row: 3 / 3;
+}
+
+.contenedor-1 .cuatro div:nth-child(4) {
+  grid-column: 3 / 3;
+  grid-row: 3 / 3;
+}
+
+.contenedor-1 .cinco {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.contenedor-1 .cinco div:nth-child(2) {
+  grid-column: 3 / 3;
+  grid-row: 1 / 3;
+  place-self: start end;
+}
+
+.contenedor-1 .cinco div:nth-child(3) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  place-self: center;
+}
+
+.contenedor-1 .cinco div:nth-child(4) {
+  grid-column: 1 / 3;
+  grid-row: 3 / 3;
+  place-self: end start;
+}
+
+.contenedor-1 .cinco div:nth-child(5) {
+  grid-column: 3 / 3;
+  grid-row: 3 / 3;
+  place-self: end end;
+}
+
+.contenedor-1 .seis {
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+}
+
+.contenedor-1 .seis div:nth-child(2) {
+  grid-column: 3 / 3;
+  grid-row: 1 / 3;
+  place-self: start end;
+}
+
+.contenedor-1 .seis div:nth-child(3) {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  place-self: center start;
+}
+
+.contenedor-1 .seis div:nth-child(4) {
+  grid-column: 3 / 3;
+  grid-row: 2 / 3;
+  place-self: center end;
+}
+
+.contenedor-1 .seis div:nth-child(5) {
+  grid-column: 1 / 3;
+  grid-row: 3 / 3;
+  place-self: end start;
+}
+
+.contenedor-1 .seis div:nth-child(6) {
+  grid-column: 3 / 3;
+  grid-row: 3 / 3;
+  place-self: end end;
+}
+
+.contenedor-1 .cantidad-bolitas {
+  width: var(--bolitas-cartas-tamaño-normal);
+  height: var(--bolitas-cartas-tamaño-normal);
+  margin: 10px;
+
+  background-color: white;
+
+  border-radius: 90%;
+}
+
+.contenedor-2 {
+  width: 60%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.contenedor-2 .caja-dado {
+  width: 100%;
+  height: 100%;
+  perspective: 1500px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-2 .caja-dado .dado {
+  position: relative;
+  transform-style: preserve-3d;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: 2s;
+}
+
+.contenedor-2 .caja-dado .dado .caras-dado {
+  width: var(--dado-tamaño-normal);
+  height: var(--dado-tamaño-normal);
+  box-sizing: border-box;
+  background-color: purple;
+  border: 2px solid white;
+
+  display: flex;
+  position: absolute;
+}
+
+.contenedor-2 .caja-dado .dado .uno {
+  display: grid;
+  place-items: center;
+
+  transform: translateZ(calc(var(--dado-tamaño-normal) / 2));
+}
+
+.contenedor-2 .caja-dado .dado .dos {
+  justify-content: space-between;
+
+  transform: translateZ(calc(var(--dado-tamaño-normal) / 2)) translateX(calc(var(--dado-tamaño-normal) / 2)) translateZ(calc(var(--dado-tamaño-normal) / -2)) rotateY(90deg);
+}
+
+.contenedor-2 .caja-dado .dado .dos div:nth-child(2) {
+  align-self: flex-end;
+}
+
+.contenedor-2 .caja-dado .dado .tres {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  transform: translateZ(calc(var(--dado-tamaño-normal) / 2)) translateY(calc(var(--dado-tamaño-normal) / 2)) translateZ(calc(var(--dado-tamaño-normal) / -2)) rotateX(90deg);
+}
+
+.contenedor-2 .caja-dado .dado .tres div:nth-child(1) {
+  align-self: flex-end;
+}
+
+.contenedor-2 .caja-dado .dado .tres div:nth-child(3) {
+  align-self: flex-start;
+}
+
+.contenedor-2 .caja-dado .dado .cuatro {
+  display: grid;
+  grid-template-columns: 3fr;
+  grid-template-rows: 3fr;
+
+  transform: translateY(calc(var(--dado-tamaño-normal) / -2))  rotateX(90deg);
+}
+
+.contenedor-2 .caja-dado .dado .cuatro div:nth-child(2) {
+  grid-column: 3 / 3;
+  grid-row: 1 / 3;
+}
+
+.contenedor-2 .caja-dado .dado .cuatro div:nth-child(3) {
+  grid-column: 1 / 3;
+  grid-row: 3 / 3;
+}
+
+.contenedor-2 .caja-dado .dado .cuatro div:nth-child(4) {
+  grid-column: 3 / 3;
+  grid-row: 3 / 3;
+}
+
+.contenedor-2 .caja-dado .dado .cinco {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  transform: translateZ(calc(var(--dado-tamaño-normal) / 2)) translateX(calc(var(--dado-tamaño-normal) / -2)) translateZ(calc(var(--dado-tamaño-normal) / -2)) rotateY(90deg);
+}
+
+.contenedor-2 .caja-dado .dado .cinco div:nth-child(2) {
+  grid-column: 3 / 3;
+  grid-row: 1 / 3;
+  place-self: start end;
+}
+
+.contenedor-2 .caja-dado .dado .cinco div:nth-child(3) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  place-self: center;
+}
+
+.contenedor-2 .caja-dado .dado .cinco div:nth-child(4) {
+  grid-column: 1 / 3;
+  grid-row: 3 / 3;
+  place-self: end start;
+}
+
+.contenedor-2 .caja-dado .dado .cinco div:nth-child(5) {
+  grid-column: 3 / 3;
+  grid-row: 3 / 3;
+  place-self: end end;
+}
+
+.contenedor-2 .caja-dado .dado .seis {
+  display: grid;
+  grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+
+  transform: translateZ(calc(var(--dado-tamaño-normal) * -.5));
+}
+
+.contenedor-2 .caja-dado .dado .seis div:nth-child(2) {
+  grid-column: 3 / 3;
+  grid-row: 1 / 3;
+  place-self: start end;
+}
+
+.contenedor-2 .caja-dado .dado .seis div:nth-child(3) {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  place-self: center start;
+}
+
+.contenedor-2 .caja-dado .dado .seis div:nth-child(4) {
+  grid-column: 3 / 3;
+  grid-row: 2 / 3;
+  place-self: center end;
+}
+
+.contenedor-2 .caja-dado .dado .seis div:nth-child(5) {
+  grid-column: 1 / 3;
+  grid-row: 3 / 3;
+  place-self: end start;
+}
+
+.contenedor-2 .caja-dado .dado .seis div:nth-child(6) {
+  grid-column: 3 / 3;
+  grid-row: 3 / 3;
+  place-self: end end;
+}
+
+.contenedor-2 .caja-dado .dado .caras-dado .cantidad-bolitas {
+  width: var(--bolitas-tamaño-normal);
+  height: var(--bolitas-tamaño-normal);
+  margin: 10px;
+
+  background-color: white;
+
+  border-radius: 90%;
+}
+
+@media (max-width: 350px) {
+  .cabecera h1 {
+    font-size: 22px;
+  }
+
+  .contenido {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+
+  .contenido .contenedor-1 {
+    box-sizing: border-box;
+    width: 100%;
+    height: 300px;
+    padding: 0 10px;
+  
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .contenido .contenedor-2 {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+@media (min-width: 351px) and (max-width: 620px) {
+  .cabecera h1 {
+    font-size: 35px;
+  }
+
+  .contenido {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+  }
+
+  .contenido .contenedor-1 {
+    box-sizing: border-box;
+    width: 100%;
+    height: 200px;
+    padding: 0 10px;
+  
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .contenido .contenedor-2 {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+@media (min-width: 621px) and (max-width: 720px) {
+  .contenido .contenedor-1 {
+    height: 650px;
+  }
+
+  .contenido .contenedor-2 {
+    height: 650px;
+  }
+}
